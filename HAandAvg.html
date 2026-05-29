@@ -31,7 +31,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="HAandAvg_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link href="HAandAvg_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="HAandAvg_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -189,11 +208,29 @@ Matthias Lochmann
 </div>
 </div>
 </section>
-<section id="ha-kurven" class="slide level2">
-<h2>%HA Kurven</h2>
-
+<section id="belästigungs-kurven-lden" class="slide level2">
+<h2>Belästigungs-Kurven LDEN</h2>
 
 <img data-src="HAandAvg_files/figure-revealjs/HAkurven-1.png" width="960" class="r-stretch"></section>
+<section id="umrechnung-auf-ld" class="slide level2">
+<h2>Umrechnung auf LD</h2>
+<p>Gemäß <span class="citation" data-cites="brink2018">(<a href="#/literatur" role="doc-biblioref" onclick="">Brink et al. 2018</a>)</span> ist für Flugverkehr</p>
+<p><span class="math display">\[L_{\textrm{D}}=L_{\textrm{DEN}}-2,3\,\textrm{dB}.\]</span></p>
+</section>
+<section id="verschobene-ha-kurve" class="slide level2">
+<h2>Verschobene HA-Kurve</h2>
+<p>Angewandt auf obigen Datensatz verschiebt sich die x-Achse:</p>
+
+<img data-src="HAandAvg_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="literatur" class="slide level2 smaller scrollable">
+<h2>Literatur</h2>
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-brink2018" class="csl-entry" role="listitem">
+Brink, Mark, Beat Schäffer, Reto Pieren, and Jean Marc Wunderli. 2018. <span>“Conversion Between Noise Exposure Indicators Leq24h, LDay, LEvening, LNight, Ldn and Lden: Principles and Practical Guidance.”</span> <em>International Journal of Hygiene and Environmental Health</em> 221 (1): 54–63. <a href="https://doi.org/10.1016/j.ijheh.2017.10.003">https://doi.org/10.1016/j.ijheh.2017.10.003</a>.
+</div>
+</div>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -3,6 +3,7 @@ title: "HAandAvg"
 author: "Matthias Lochmann"
 format: revealjs
 editor: visual
+bibliography: references.bib
 ---
 
 ## Daten einlesen
@@ -12,6 +13,7 @@ Die Daten von der [Datenveröffentlichung](https://doi.org/10.5281/zenodo.151729
 ```{r}
 #| label: read_data
 library(tidyverse)
+library(scales)
 data <- read_delim(
   "SchaefferEtAl_NORAH_DataSet_V1_2025-05.csv",
   delim = ";",
@@ -22,19 +24,58 @@ data <- read_delim(
 summary(data)
 ```
 
-## %HA Kurven
+## Belästigungs-Kurven LDEN
 
 ```{r}
 #| label: HAkurven
-data %>% 
-  mutate(Air_LDEN_round=round(Air_LDEN),
-         subStudie=as.character(compstudie2)) %>% 
-  filter(AirportName=="FRA") %>% 
-  group_by(Year,Air_LDEN_round,subStudie) %>% 
-  summarise(n=n(),prozHA=mean(HAv_air)) %>% 
-  ggplot(aes(x=Air_LDEN_round,prozHA,color=factor(subStudie)))+
-  geom_line()+
-  geom_point(aes(size=n))+
-  facet_wrap(vars(Year))+
-  labs(title="Fluglärmbelästigung am Frankfurter Flughafen")
+plotFra <- function(dat) {
+  dat %>%
+    filter(AirportName == "FRA") %>%
+    group_by(
+      Year,
+      #subStudie,
+      pegel
+    ) %>%
+    summarise(n = n(), HA = mean(HAv_air)) %>%
+    ggplot(aes(
+      x = pegel,
+      HA,
+      #color=factor(subStudie),
+      color = factor(Year)
+    )) +
+    scale_y_continuous(labels = percent_format(accuracy = 1),
+                       breaks=seq(0,1,.1))+
+    geom_line() +
+    geom_point(aes(size = n))
+    #facet_wrap(vars(Year))
+}
+
+data %>%
+  mutate(pegel = round(Air_LDEN),
+         subStudie = as.character(compstudie2)) %>%
+  plotFra()+
+  labs(title = "Fluglärmbelästigung am Frankfurter Flughafen (abhängig von LDEN)",
+       x="LDEN")
+
 ```
+
+## Umrechnung auf LD
+
+Gemäß [@brink2018] ist für Flugverkehr
+
+$$L_{\textrm{D}}=L_{\textrm{DEN}}-2,3\,\textrm{dB}.$$
+
+## Verschobene HA-Kurve
+
+Angewandt auf obigen Datensatz verschiebt sich die x-Achse:
+
+```{r}
+data %>%
+  mutate(pegel = round(Air_LDEN-2.3),
+         subStudie = as.character(compstudie2)) %>%
+  plotFra()+
+  labs(title = "Fluglärmbelästigung am Frankfurter Flughafen (abhängig von LD)",
+       x="LD")
+```
+
+## Literatur

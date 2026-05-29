@@ -1,0 +1,25 @@
+﻿Variable;Description
+Subject_No;Subject number
+NDVI_500_mean;Mean NDVI (Landsat 5 data ), in a buffer with radius of 500 m 
+LUgreen_500m;Land Use Green data (CORINE Land Cover dataset ), fraction of agricultural land [class 2xx] and forest or semi-natural areas [class 3xx], in a buffer with radius of 500 m
+DGURBA_CLA;Degree of urbanization (DEGURBA) by Eurostat. 1 = cities, 2 = towns & suburbs, 3 = rural areas
+compstudie2;"Survey / Sample:  1: FRAP 2011; 2.1: FRAQUER - FL-SCH; 2.2: FRAQUER - FL-STR; 2.3: FRAQUER - Schiene; 2.4: FRAQUER - Strasse; 3.1: BER; 3.2: CGN; 3.3: STR"
+Airport;"Airport: 1: FRA; 2: BER; 3: CGN; 4: STR"
+AirportName;Airport Name: (FRA,  BER, CGN, STR
+Year;Year of Survey (2011, 2012, 2013)
+Gender;Gender: 1 = male, 2 = female
+Age;Age (years)
+AgeGroups;"Age Groups: 1830: < 30 y; 3050: 30-50 y; 5070: 50-70 y, 7000: > 70 y"
+Annoyance_road;Road traffic noise annoyance in last 12 months, ICBEN verbal 5-point scale, 1 - 5
+HAv_road;Road traffic noise high annoyance %HAv in last 12 months (ICBEN verbal 5-point scale: top two categories 4 & 5)
+Road_LDEN;Day-evening-night level Lden (06-18-22 h) of road traffic noise
+Annoyance_rail;Railway noise annoyance  in last 12 months, ICBEN verbal 5-point scale, 1 - 5
+HAv_rail;Railway noise high annoyance %HAv  in last 12 months (ICBEN verbal 5-point scale: top two categories 4 & 5)
+Rail_LDEN;Day-evening-night level Lden (06-18-22 h) of railway noise
+Annoyance_air;Aircraft noise annoyance  in last 12 months, ICBEN verbal 5-point scale, 1 - 5
+HAv_air;Aircraft noise high annoyance %HAv in last 12 months (ICBEN verbal 5-point scale: top two categories 4 & 5)
+Air_LDEN;Day-evening-night level Lden (06-18-22 h) of aircraft noise
+;
+More details: ;
+"Schreckenberg, D.; Faulbaum, F.; Guski, R.; Ninke, L.; Peschel, C.; Spilski, J.; Wothge, J. (2015). NORAH — Verkehrslärmwirkungen im Flughafenumfeld. Band 3: Wirkungen von Verkehrslärm auf die Belästigung und Lebensqualität, Endbericht. Kelsterbach, Germany. Available on: http://www.laermstudie.de/ (last viewed on 08/04/2022).";
+"Schäffer, B.; Schalcher, S.; Brink, M.; Schreckenberg, D. (2025). The association of residential green with noise annoyance depends on transport source and environmental context: Insights from the large-scale NORAH study. Environmental Research.";
